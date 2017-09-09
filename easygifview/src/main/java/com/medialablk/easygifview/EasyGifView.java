@@ -23,6 +23,9 @@ public class EasyGifView extends View {
     private long lngHeight = 0;
     private long lngDuration = 0;
 
+    private float ratioWidth;
+    private float ratioHeight;
+
     public EasyGifView(Context context) throws IOException {
         super(context);
     }
@@ -64,6 +67,43 @@ public class EasyGifView extends View {
     }
 
     @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        if (mMovie != null) {
+            int width;
+            int height;
+
+            width = mMovie.width();
+            height = mMovie.height();
+            if (width <= 0) width = 1;
+            if (height <= 0) height = 1;
+
+            int paddingLeft = getPaddingLeft();
+            int paddingRight = getPaddingRight();
+            int paddingTop = getPaddingTop();
+            int paddingBottom = getPaddingBottom();
+
+            int widthSize;
+            int heightSize;
+
+            width += paddingLeft + paddingRight;
+            height += paddingTop + paddingBottom;
+
+            width = Math.max(width, getSuggestedMinimumWidth());
+            height = Math.max(height, getSuggestedMinimumHeight());
+
+            widthSize = resolveSizeAndState(width, widthMeasureSpec, 0);
+            heightSize = resolveSizeAndState(height, heightMeasureSpec, 0);
+
+            ratioWidth = (float) widthSize / width;
+            ratioHeight = (float) heightSize / height;
+
+            setMeasuredDimension(widthSize, heightSize);
+        } else {
+            super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        }
+    }
+
+    @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         if (mMovie == null) {
@@ -78,6 +118,7 @@ public class EasyGifView extends View {
 
         int rTime = (int)((lngCurrentTime - lngMovie) % mMovie.duration());
         mMovie.setTime(rTime);
+        canvas.scale(Math.min(ratioWidth, ratioHeight), Math.min(ratioWidth, ratioHeight));
         mMovie.draw(canvas,0,0);
         this.invalidate();
     }
