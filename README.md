@@ -18,9 +18,10 @@ A simple android library to play with GIF
   
   2 *Add the dependency*
   
-  	 dependencies {
-	         compile 'com.github.IsPra94:EasyGifView:-SNAPSHOT'
-	   }
+  	  dependencies {
+	        compile 'com.github.IsPra94:EasyGifView:1.0.1'
+	  }
+
   
 ## Maven
 
@@ -38,7 +39,7 @@ A simple android library to play with GIF
  	 <dependency>
 	    <groupId>com.github.IsPra94</groupId>
 	    <artifactId>EasyGifView</artifactId>
-	    <version>-SNAPSHOT</version>
+	    <version>1.0.1</version>
 	 </dependency>
 
 # In Your Android Project
