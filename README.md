@@ -12,7 +12,6 @@ A simple android library to play with GIF
 
 	  allprojects {
 		  repositories {
-			  ...
 			  maven { url 'https://jitpack.io' }
 		  }
 	  }
