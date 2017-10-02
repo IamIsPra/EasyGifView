@@ -5,7 +5,7 @@ A simple android library to play with GIF
 [![](https://jitpack.io/v/IsPra94/EasyGifView.svg)](https://jitpack.io/#IsPra94/EasyGifView)
 <a href="http://www.methodscount.com/?lib=com.github.IsPra94%3AEasyGifView%3A-SNAPSHOT"><img src="https://img.shields.io/badge/Size-17 KB-e91e63.svg"/></a>
 [![API](https://img.shields.io/badge/API-11%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=11)
-
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/medialablk)
 # Usage
 
 ## Gradle
